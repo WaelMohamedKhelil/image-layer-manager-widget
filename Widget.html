@@ -1,0 +1,51 @@
+<div>
+    <div id="image-manager-container">
+        
+        <div data-dojo-attach-point="mapIdNode"></div>
+        <div class="operations" onselectstart="return false;">
+            <input id="uploadImage" type="file" name="pic" accept="image/*">
+            
+            <div class="jimu-btn" data-dojo-attach-point="btnAddImage" 
+            data-dojo-attach-event="onclick:_onBtnAddImageClicked">Add image</div>
+        </div>
+        <br>
+        <br>
+        <div style="width:100%" class="jimu-widget-Georeferencer" id="jimu_dijit_Georeferencer_0" widgetid="jimu_dijit_Georeferencer_0">
+            <div data-dojo-attach-point="GeoreferencerDiv">
+                <label>Map Image Layers</label>
+                <select id="select-map-img-layers" class="jimu-input flDropDown">
+                </select>
+            </div>
+            <div class="jimu-btn" data-dojo-attach-point="btnGR" data-dojo-attach-event="onclick:_onGRClicked">Georeferencing</div>
+            <div class="jimu-btn" data-dojo-attach-point="btnDelete" data-dojo-attach-event="onclick:_onBtnDeleteClicked">Delete</div>
+            <br>
+        </div>
+    </div>
+    
+    
+    <div id="points-managing-container"style="visibility: hidden">
+        <br>
+        <div class="jimu-btn" data-dojo-attach-point="btnUpdate" data-dojo-attach-event="onclick:_onGRClicked1">Set 1st point</div>
+        <br>
+        <label>Y</label>
+        <input id="latp1" class="jimu-input searchtextbox" type="text" placeholder="Y">
+        <br>
+        <label>X</label>
+        <input id="longp1" class="jimu-input searchtextbox" type="text" placeholder="X">
+        
+        <br>
+        <div class="jimu-btn" data-dojo-attach-point="btnUpdate" data-dojo-attach-event="onclick:_onGRClicked2">Set 2nd point</div>
+        <br>
+        <label>Y</label>
+        <input id="latp2"class="jimu-input searchtextbox" type="text" placeholder="Y">
+        <br>
+        <label>X</label>
+        <input id="longp2"class="jimu-input searchtextbox" type="text" placeholder="X">
+        <br>
+        <br>
+        <div class="jimu-btn" data-dojo-attach-point="btnSave" data-dojo-attach-event="onclick:_onSave">Save</div>
+        <div class="jimu-btn" data-dojo-attach-point="btnCancel" data-dojo-attach-event="onclick:_onBtnCancelClicked">Cancel</div>
+    </div>
+    
+    
+</div>

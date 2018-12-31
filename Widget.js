@@ -255,31 +255,28 @@ function(declare, BaseWidget, Extent, MapImage, MapImageLayer, Draw, SimpleMarke
       var mapSpatialReference = this.map.spatialReference;
       var extent = new Extent().update(mapExtent.xmin, mapExtent.ymin, mapExtent.xmax,
         mapExtent.ymax, mapSpatialReference);  
-        
+        var mi;
         var mil = new MapImageLayer();
+        var map = this.map;
         
-        var mi = new MapImage({  
-          "extent":extent,
-          "href": "https://res.cloudinary.com/fen-learning/image/upload/c_limit,w_507,h_506/infopls_images/images/malgeria.gif"  
-        });
-        mil.addImage(mi);
-        this.map.addLayer(mil);
+     
         
+
+          var input = document.getElementById("uploadImage");
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
         
-        // alert(document.getElementById("uploadImage").value);
-        //   var input = document.getElementById("uploadImage");
-        //   if (input.files && input.files[0]) {
-        //     var reader = new FileReader();
+            reader.onload = function (e) {
+               mi = new MapImage({  
+                "extent":extent,
+                "href": e.target.result  
+              });
+              mil.addImage(mi);
+              map.addLayer(mil);
+            };
         
-        //     reader.onload = function (e) {
-        //         $('#blah')
-        //             .attr('src', e.target.result)
-        //             .width(150)
-        //             .height(200);
-        //     };
-        
-        //     reader.readAsDataURL(input.files[0]);
-        // }
+            reader.readAsDataURL(input.files[0]);
+        }
         this._onUpdate();
       },
     });
